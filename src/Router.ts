@@ -92,7 +92,7 @@ export enum HTTPMethod {
 
 interface Param {
   url: string;
-  handler: { req: any; res: any };
+  handler: { req: IncomingMessage; res: OutgoingMessage };
 }
 interface FullRequest {
   url: string;
