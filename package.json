@@ -1,0 +1,37 @@
+{
+  "name": "typescript-for-node.js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --ignore **/*.json ./src/index.js",
+    "test:junit": "cross-env MOCHA_FILE=junit.xml ts-mocha test/**/*.ts --reporter mocha-junit-reporter",
+    "test:xunit": "cross-env MOCHA_FILE=xunit.xml ts-mocha test/**/*.ts --reporter mocha-xunit-reporter",
+    "test": "npm run test:junit",
+    "test:unit": "ts-mocha test/**/*.ts",
+    "bulid": "tsc"
+  },
+  "engines": {
+    "node": "<=12"
+  },
+  "author": "<PUT YOUR NAME HERE>",
+  "devDependencies": {
+    "@types/chai": "^4.2.21",
+    "@types/mocha": "^8.2.3",
+    "@types/node": "16.4.0",
+    "@types/sinon": "^10.0.2",
+    "@types/sinon-chai": "^3.2.5",
+    "chai": "4.2.0",
+    "chai-as-promised": "7.1.1",
+    "cross-env": "7.0.2",
+    "mocha": "8.3.2",
+    "mocha-junit-reporter": "1.23.3",
+    "mocha-xunit-reporter": "2.1.0",
+    "nodemon": "2.0.7",
+    "sinon": "^11.1.1",
+    "sinon-chai": "^3.7.0",
+    "ts-mocha": "^8.0.0",
+    "typescript": "4.3.5"
+  },
+  "dependencies": {}
+}
