@@ -48,7 +48,7 @@ export class Router {
   }
 
   getHandler(): Function {
-    return async (request: any, response: any) => {
+    return async (request: IncomingMessage, response: OutgoingMessage) => {
       const obj = Object.entries(request);
       request.on("data", (element: string) => {
         const string: string = element;
@@ -81,7 +81,7 @@ export class Router {
   }
 }
 
-export type Handler<T> = (request: any, response: any) => void;
+export type Handler<T> = (request: IncomingMessage, response: OutgoingMessage) => void;
 
 export enum HTTPMethod {
   GET = "GET",
@@ -98,4 +98,14 @@ interface FullRequest {
   url: string;
   handler: Handler<Param>;
   method: HTTPMethod;
+}
+interface IncomingMessage {
+  body: Object
+  method: HTTPMethod,
+  url: string,
+  on: Function
+}
+interface OutgoingMessage {
+  statusCode: number
+  end: Function
 }
